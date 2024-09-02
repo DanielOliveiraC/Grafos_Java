@@ -29,6 +29,11 @@ import com.mxgraph.view.mxStylesheet;
 
 public class GrafoPlotter {
     GrafoDAO grafoDAO = new GrafoDAO();
+    
+    /** 
+     * @param grafo
+     * @return Graph<String, DefaultWeightedEdge>
+     */
     public Graph<String, DefaultWeightedEdge> converterParaJGraphT(Grafo grafo) {
         // Cria um grafo ponderado não direcionado
         Graph<String, DefaultWeightedEdge> jGraphTGraph = new WeightedPseudograph<>(DefaultWeightedEdge.class);
@@ -52,6 +57,10 @@ public class GrafoPlotter {
         return jGraphTGraph;
     }
 
+    
+    /** 
+     * @param grafo
+     */
     public void plotarGrafo(Grafo grafo) {
     // Converte o grafo para o tipo esperado pelo JGraphT
     Graph<String, DefaultWeightedEdge> jGraphTGraph = converterParaJGraphT(grafo);
@@ -102,6 +111,10 @@ public class GrafoPlotter {
 }
 
 
+    
+    /** 
+     * @param grafo
+     */
     public void plotarMatrizAdjacencia(Grafo grafo) {
         Graph<String, DefaultWeightedEdge> jGraphTGraph = converterParaJGraphT(grafo);
     
@@ -140,16 +153,16 @@ public class GrafoPlotter {
         }
     
         // Cria a tabela visual com a matriz de adjacência
-        JTable table = new JTable(model);
-        table.setGridColor(Color.BLACK);
-        table.setShowGrid(true);
+        JTable tabela = new JTable(model);
+        tabela.setGridColor(Color.BLACK);
+        tabela.setShowGrid(true);
     
         // Define o renderer customizado para a tabela
-        table.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
+        tabela.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
     
         // Adiciona a tabela a um JScrollPane para caso a tabela seja grande
-        JScrollPane scrollPane = new JScrollPane(table);
-        table.setFillsViewportHeight(true);
+        JScrollPane scrollPane = new JScrollPane(tabela);
+        tabela.setFillsViewportHeight(true);
     
         // Configura o frame para exibir a matriz de adjacência
         JFrame frame = new JFrame("Matriz de Adjacência");
@@ -161,6 +174,11 @@ public class GrafoPlotter {
     }
     
 
+    
+    /** 
+     * @param grafo
+     * @param caminhoDFS
+     */
     public void plotarCaminhamentoDFS(Grafo grafo, List<Integer> caminhoDFS) {
         // Converte o grafo para o tipo esperado pelo JGraphT
         Graph<String, DefaultWeightedEdge> jGraphTGraph = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
@@ -225,7 +243,4 @@ public class GrafoPlotter {
         frame.pack();
         frame.setVisible(true);
     }
-    
-    
-    
 }
