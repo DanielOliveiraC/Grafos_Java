@@ -19,6 +19,10 @@ import com.mxgraph.swing.mxGraphComponent;
 public class GrafoDAO {
     Grafo grafo = new Grafo();
     ArestaDAO arestaDAO = new ArestaDAO(grafo);
+    
+    /** 
+     * @param id
+     */
     public void inserirVertice(int id) {
         if (!grafo.getAdjacencias().containsKey(id)) {
             grafo.getAdjacencias().put(id, new ArrayList<>());
@@ -30,6 +34,10 @@ public class GrafoDAO {
     
     
     
+    
+    /** 
+     * @param grafo
+     */
     public static void plotarGrafo(Graph<String, DefaultEdge> grafo) {
         // Adaptando o grafo para JGraphX
         JGraphXAdapter<String, DefaultEdge> graphAdapter = new JGraphXAdapter<>(grafo);
@@ -47,6 +55,11 @@ public class GrafoDAO {
         frame.setVisible(true);
     }
 
+    
+    /** 
+     * @param grafo
+     * @return boolean
+     */
     public boolean VerificaGrafoConexo(Grafo grafo) {
         Set<Integer> vertices = grafo.getVertices();
         if (vertices.isEmpty()) {
@@ -64,6 +77,12 @@ public class GrafoDAO {
         return visited.size() == vertices.size();
     }
 
+    
+    /** 
+     * @param startVertex
+     * @param grafo
+     * @param visited
+     */
     // Implementa a busca em profundidade (DFS)
     private void dfs(Integer startVertex, Grafo grafo, Set<Integer> visited) {
         Stack<Integer> stack = new Stack<>();
@@ -85,10 +104,13 @@ public class GrafoDAO {
     }
 
     
+    
+    /** 
+     * @param grafo
+     */
     public void exibirConectividade(Grafo grafo) {
         boolean conexo = VerificaGrafoConexo(grafo);
         System.out.println("O grafo é conexo? " + (conexo ? "Sim" : "Não"));
-    }
-    
+    }    
 
 }
