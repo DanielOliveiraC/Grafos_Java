@@ -83,12 +83,17 @@ public class App {
                     if (form == 1){
                         grafo.dfsTexto(no_inicio);
                     } else {
-                        List<Integer> caminhoDFS = grafo.dfs(no_inicio);
+                        List<Integer> caminhoDFS = grafo.Depth_First_Search(no_inicio);
                         plotter.plotarCaminhamentoDFS(grafo, caminhoDFS);
                     }
                     break;
                 case 8:
-                    System.out.println(grafoDAO.verificarConectividade(grafo));
+                    if (grafoDAO.VerificaGrafoConexo(grafo)){
+                        System.out.println("Conexo");
+                    } else {
+                        System.out.println("Não conexo");
+                    }
+                    
                     break;
                 case 9:
                     System.out.println("Verificar grau do nó: ");
