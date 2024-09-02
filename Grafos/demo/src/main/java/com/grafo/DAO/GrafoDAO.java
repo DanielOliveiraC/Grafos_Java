@@ -47,7 +47,7 @@ public class GrafoDAO {
         frame.setVisible(true);
     }
 
-    public boolean verificarConectividade(Grafo grafo) {
+    public boolean VerificaGrafoConexo(Grafo grafo) {
         Set<Integer> vertices = grafo.getVertices();
         if (vertices.isEmpty()) {
             return true; // Um grafo vazio é considerado conexo
@@ -86,27 +86,8 @@ public class GrafoDAO {
 
     
     public void exibirConectividade(Grafo grafo) {
-        boolean conexo = verificarConectividade(grafo);
+        boolean conexo = VerificaGrafoConexo(grafo);
         System.out.println("O grafo é conexo? " + (conexo ? "Sim" : "Não"));
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void imprimirGrafo() {
-        System.out.println("Número de vértices: " + grafo.getNumVertices());
-        for (Map.Entry<Integer, List<Aresta>> entry : grafo.getAdjacencias().entrySet()) {
-            System.out.println("Vértice: " + entry.getKey() + " -> " + entry.getValue());
-        }
     }
     
 
