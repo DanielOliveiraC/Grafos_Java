@@ -53,18 +53,36 @@ public class Grafo{
         this.numVertices = numVertices;
     }
 
+    
+    /** 
+     * @return Set<Integer>
+     */
     public Set<Integer> getVertices() {
         return adjacencias.keySet();
     }
+    
+    /** 
+     * @param vertice
+     * @return List<Aresta>
+     */
     public List<Aresta> getArestas(int vertice) {
         return adjacencias.get(vertice);
     }
+    
+    /** 
+     * @param vertice
+     * @return int
+     */
     public int getGrau(int vertice) {
         List<Aresta> arestas = adjacencias.get(vertice);
         return arestas != null ? arestas.size() : 0;
     }
 
 
+    
+    /** 
+     * @param verticeInicial
+     */
     // Algoritmo DFS
     public void dfsTexto(int verticeInicial) {
         Set<Integer> visitados = new HashSet<>();
@@ -91,6 +109,11 @@ public class Grafo{
         }
     }
 
+    
+    /** 
+     * @param verticeInicial
+     * @return List<Integer>
+     */
     public List<Integer> Depth_First_Search(int verticeInicial) {
         Set<Integer> visitados_no = new HashSet<>();
         Stack<Integer> pilha = new Stack<>();
@@ -116,6 +139,10 @@ public class Grafo{
         return caminho_final;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void removerVertice(int id) {
         adjacencias.values().forEach(list -> list.removeIf(aresta -> aresta.destino == id));
         adjacencias.remove(id);
