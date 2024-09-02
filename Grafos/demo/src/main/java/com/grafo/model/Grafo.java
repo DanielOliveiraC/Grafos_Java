@@ -91,7 +91,7 @@ public class Grafo{
         }
     }
 
-    public List<Integer> dfs(int verticeInicial) {
+    public List<Integer> Depth_First_Search(int verticeInicial) {
         Set<Integer> visitados = new HashSet<>();
         Stack<Integer> pilha = new Stack<>();
         List<Integer> caminhoDFS = new ArrayList<>();
