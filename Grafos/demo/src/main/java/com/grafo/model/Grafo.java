@@ -92,28 +92,28 @@ public class Grafo{
     }
 
     public List<Integer> Depth_First_Search(int verticeInicial) {
-        Set<Integer> visitados = new HashSet<>();
+        Set<Integer> visitados_no = new HashSet<>();
         Stack<Integer> pilha = new Stack<>();
-        List<Integer> caminhoDFS = new ArrayList<>();
+        List<Integer> caminho_final = new ArrayList<>();
         
         pilha.push(verticeInicial);
 
         while (!pilha.isEmpty()) {
             int verticeAtual = pilha.pop();
 
-            if (!visitados.contains(verticeAtual)) {
-                visitados.add(verticeAtual);
-                caminhoDFS.add(verticeAtual);
+            if (!visitados_no.contains(verticeAtual)) {
+                visitados_no.add(verticeAtual);
+                caminho_final.add(verticeAtual);
 
                 for (Aresta aresta : adjacencias.get(verticeAtual)) {
-                    if (!visitados.contains(aresta.getDestino())) {
+                    if (!visitados_no.contains(aresta.getDestino())) {
                         pilha.push(aresta.getDestino());
                     }
                 }
             }
         }
 
-        return caminhoDFS;
+        return caminho_final;
     }
 
     public void removerVertice(int id) {
