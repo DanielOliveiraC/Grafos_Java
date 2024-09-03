@@ -19,3 +19,7 @@ O sistema tem como funções:
 ## Tecnologias Utilizadas
 Foi utilizada a linguagem de programação Java, juntamente com o Maven, uma ferramenta de usada para gerenciamento
 de projetos, e a biblioteca [JgraphT](https://jgrapht.org/docs).
+
+## Links Externos
+Foi gravado um vídeo explicando um pouco sobre o sistema e disponibilizado no Youtube. 
+Link: [Criando e Manipulando Grafos em Java!](https://youtu.be/I9lVi-anaG8)
