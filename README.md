@@ -22,4 +22,4 @@ de projetos, e a biblioteca [JgraphT](https://jgrapht.org/docs).
 
 ## Links Externos
 Foi gravado um vídeo explicando um pouco sobre o sistema e disponibilizado no Youtube. 
-Link: [Criando e Manipulando Grafos em Java!](https://youtu.be/I9lVi-anaG8)
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Icone Youtube"></img> Link: [Criando e Manipulando Grafos em Java!](https://youtu.be/I9lVi-anaG8)
